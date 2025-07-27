@@ -1,46 +1,45 @@
 body {
-  background-color: #0e0e0e;
-  font-family: 'Comic Sans MS', cursive;
-  color: #00ffd0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #1e1e2f;
+  color: white;
   text-align: center;
-  padding: 30px;
+  padding: 20px;
 }
 
 h1 {
-  font-size: 2.5em;
-  color: #ff66cc;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px #222;
+  color: #00ff88;
 }
 
-.scoreboard {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 80%;
+  background-color: #2a2a40;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.card {
-  background-color: #1a1a1a;
-  border: 3px solid #00ffd0;
-  border-radius: 15px;
-  width: 220px;
-  padding: 20px;
-  transition: transform 0.3s ease;
-  box-shadow: 0 0 15px #00ffd055;
+th, td {
+  padding: 15px;
+  border-bottom: 1px solid #444;
 }
 
-.card:hover {
-  transform: scale(1.05);
+.student-row td {
+  transition: background-color 0.3s ease;
 }
 
-.card h2 {
-  font-size: 1.4em;
-  color: #ffcc00;
+input[type="range"] {
+  width: 100%;
 }
 
-.card p {
-  font-size: 1.2em;
-  margin: 8px 0;
-  color: #ffffff;
+.low-score {
+  background-color: #ff4d4d;
+}
+
+.medium-score {
+  background-color: #ffbb33;
+}
+
+.high-score {
+  background-color: #33cc33;
 }
