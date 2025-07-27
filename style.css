@@ -32,8 +32,8 @@ td.score {
   color: #1a75ff;
 }
 
-td.gain {
-  color: green;
-  font-weight: bold;
+input[type="number"] {
+  width: 70px;
+  padding: 5px;
+  font-size: 14px;
 }
-
