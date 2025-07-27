@@ -6,28 +6,36 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>📘 Class Scoreboard</h1>
-  <table id="scoreTable">
-    <tr>
-      <th>Name</th>
-      <th>Score</th>
-      <th>Adjust</th>
-    </tr>
-    <tr class="student-row" id="student1">
-      <td>Ani</td>
-      <td class="score">10</td>
-      <td>
-        <input type="range" min="0" max="25" value="10" class="slider" oninput="updateScore(this, 'student1')">
-      </td>
-    </tr>
-    <tr class="student-row" id="student2">
-      <td>Biki</td>
-      <td class="score">5</td>
-      <td>
-        <input type="range" min="0" max="25" value="5" class="slider" oninput="updateScore(this, 'student2')">
-      </td>
-    </tr>
+  <h1>🏆 Student Scoreboard</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Score</th>
+        <th>+ Gained</th>
+        <th>Update</th>
+      </tr>
+    </thead>
+    <tbody id="scoreBody">
+      <!-- Example rows -->
+      <tr>
+        <td>1</td>
+        <td>Rohan</td>
+        <td class="score">78</td>
+        <td class="gain">+2.0</td>
+        <td><input type="number" min="0" placeholder="Add +" onchange="addScore(this, 0)"></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Ritika</td>
+        <td class="score">74</td>
+        <td class="gain">+0.0</td>
+        <td><input type="number" min="0" placeholder="Add +" onchange="addScore(this, 1)"></td>
+      </tr>
+    </tbody>
   </table>
+
   <script src="script.js"></script>
 </body>
 </html>
