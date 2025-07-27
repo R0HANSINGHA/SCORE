@@ -1,15 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
   <title>Student Scoreboard</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>🏆 Class Scoreboard - Anime Style 🏆</h1>
-  <div id="scoreboard" class="scoreboard"></div>
-
+  <h1>📘 Class Scoreboard</h1>
+  <table id="scoreTable">
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>Adjust</th>
+    </tr>
+    <tr class="student-row" id="student1">
+      <td>Ani</td>
+      <td class="score">10</td>
+      <td>
+        <input type="range" min="0" max="25" value="10" class="slider" oninput="updateScore(this, 'student1')">
+      </td>
+    </tr>
+    <tr class="student-row" id="student2">
+      <td>Biki</td>
+      <td class="score">5</td>
+      <td>
+        <input type="range" min="0" max="25" value="5" class="slider" oninput="updateScore(this, 'student2')">
+      </td>
+    </tr>
+  </table>
   <script src="script.js"></script>
 </body>
 </html>
