@@ -1,16 +1,34 @@
-function addScore(input, rowIndex) {
+// Student data: edit this array to update easily!
+const students = [
+  { name: "Rohan", score: 78, gain: 2.0 },
+  { name: "Ritika", score: 74, gain: 0.0 },
+  { name: "Amit", score: 85, gain: 3.2 },
+  { name: "Priya", score: 69, gain: 1.5 },
+  { name: "Kunal", score: 90, gain: 4.1 }
+  // Add more here... up to 50+
+];
+
+// Sort by score descending
+students.sort((a, b) => b.score - a.score);
+
+function renderTable() {
   const table = document.getElementById("scoreBody");
-  const row = table.rows[rowIndex];
-  const scoreCell = row.querySelector('.score');
-  const gainCell = row.querySelector('.gain');
+  table.innerHTML = ""; // Clear table
 
-  const currentScore = parseFloat(scoreCell.textContent);
-  const gainValue = parseFloat(input.value);
+  students.forEach((student, index) => {
+    const row = document.createElement("tr");
 
-  if (!isNaN(gainValue) && gainValue >= 0) {
-    const newScore = currentScore + gainValue;
-    scoreCell.textContent = newScore.toFixed(1);
-    gainCell.textContent = `+${gainValue.toFixed(1)}`;
-    input.value = ""; // clear input
-  }
+    const crown = index === 0 ? "🥇" : index === 1 ? "🥈" : index === 2 ? "🥉" : "";
+
+    row.innerHTML = `
+      <td>${index + 1} ${crown}</td>
+      <td>${student.name}</td>
+      <td class="score">${student.score}</td>
+      <td class="gain">+${student.gain.toFixed(1)}</td>
+    `;
+
+    table.appendChild(row);
+  });
 }
+
+renderTable();
