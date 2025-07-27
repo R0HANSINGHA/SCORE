@@ -1,27 +1,16 @@
-const students = [
-  { name: "Tanjiro", roll: "1", marks: 23 },
-  { name: "Naruto", roll: "2", marks: 21 },
-  { name: "Luffy", roll: "3", marks: 19 },
-  { name: "Deku", roll: "4", marks: 25 },
-  { name: "Nezuko", roll: "5", marks: 20 }
-];
+function updateScore(slider, rowId) {
+  const row = document.getElementById(rowId);
+  const scoreCell = row.querySelector('.score');
+  const newScore = slider.value;
+  scoreCell.textContent = newScore;
 
-function displayScoreboard() {
-  const container = document.getElementById("scoreboard");
-  container.innerHTML = "";
-
-  students.forEach(student => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <h2>🎴 ${student.name}</h2>
-      <p>Roll No: ${student.roll}</p>
-      <p>Marks: ${student.marks}/25</p>
-    `;
-
-    container.appendChild(card);
-  });
+  // Update background color based on score
+  row.classList.remove('low-score', 'medium-score', 'high-score');
+  if (newScore < 8) {
+    row.classList.add('low-score');
+  } else if (newScore < 17) {
+    row.classList.add('medium-score');
+  } else {
+    row.classList.add('high-score');
+  }
 }
-
-displayScoreboard();
