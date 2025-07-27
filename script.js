@@ -1,16 +1,16 @@
-function updateScore(slider, rowId) {
-  const row = document.getElementById(rowId);
+function addScore(input, rowIndex) {
+  const table = document.getElementById("scoreBody");
+  const row = table.rows[rowIndex];
   const scoreCell = row.querySelector('.score');
-  const newScore = slider.value;
-  scoreCell.textContent = newScore;
+  const gainCell = row.querySelector('.gain');
 
-  // Update background color based on score
-  row.classList.remove('low-score', 'medium-score', 'high-score');
-  if (newScore < 8) {
-    row.classList.add('low-score');
-  } else if (newScore < 17) {
-    row.classList.add('medium-score');
-  } else {
-    row.classList.add('high-score');
+  const currentScore = parseFloat(scoreCell.textContent);
+  const gainValue = parseFloat(input.value);
+
+  if (!isNaN(gainValue) && gainValue >= 0) {
+    const newScore = currentScore + gainValue;
+    scoreCell.textContent = newScore.toFixed(1);
+    gainCell.textContent = `+${gainValue.toFixed(1)}`;
+    input.value = ""; // clear input
   }
 }
