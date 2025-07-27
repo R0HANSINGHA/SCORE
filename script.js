@@ -1,49 +1,46 @@
-const students = [
-  { roll: "1", name: "Tanjiro" },
-  { roll: "2", name: "Naruto" },
-  { roll: "3", name: "Luffy" }
-];
-
-const scores = {};
-
-function renderCards() {
-  const container = document.getElementById("cards");
-  container.innerHTML = "";
-
-  students.forEach(student => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    const name = document.createElement("h3");
-    name.textContent = "🎴 " + student.name;
-
-    const roll = document.createElement("p");
-    roll.textContent = "Roll No: " + student.roll;
-
-    const score = document.createElement("p");
-    score.textContent = "Score: " + (scores[student.roll] || "Not given");
-
-    card.appendChild(name);
-    card.appendChild(roll);
-    card.appendChild(score);
-
-    container.appendChild(card);
-  });
+body {
+  background-color: #0e0e0e;
+  font-family: 'Comic Sans MS', cursive;
+  color: #00ffd0;
+  text-align: center;
+  padding: 30px;
 }
 
-function submitScore() {
-  const rollInput = document.getElementById("roll").value.trim();
-  const scoreInput = document.getElementById("score").value.trim();
-
-  if (!rollInput || !scoreInput) return;
-
-  scores[rollInput] = scoreInput;
-
-  document.getElementById("roll").value = "";
-  document.getElementById("score").value = "";
-
-  renderCards();
+h1 {
+  font-size: 2.5em;
+  color: #ff66cc;
+  margin-bottom: 20px;
+  text-shadow: 2px 2px #222;
 }
 
-// Initial render
-renderCards();
+.scoreboard {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: #1a1a1a;
+  border: 3px solid #00ffd0;
+  border-radius: 15px;
+  width: 220px;
+  padding: 20px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 15px #00ffd055;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card h2 {
+  font-size: 1.4em;
+  color: #ffcc00;
+}
+
+.card p {
+  font-size: 1.2em;
+  margin: 8px 0;
+  color: #ffffff;
+}
